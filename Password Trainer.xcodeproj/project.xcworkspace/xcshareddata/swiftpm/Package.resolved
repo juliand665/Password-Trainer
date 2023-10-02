@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "handyoperators",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/HandyOperators",
+      "state" : {
+        "revision" : "39f39ae74471112d54152227bb70053b59ea796f",
+        "version" : "2.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
