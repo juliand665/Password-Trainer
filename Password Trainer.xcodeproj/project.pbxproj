@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9019A732ACB836D00E85664 /* UserDefault in Frameworks */ = {isa = PBXBuildFile; productRef = B9019A722ACB836D00E85664 /* UserDefault */; };
 		B929B0942A9BD7ED005163A7 /* PasswordTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B929B0932A9BD7ED005163A7 /* PasswordTrainerApp.swift */; };
 		B929B0962A9BD7ED005163A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B929B0952A9BD7ED005163A7 /* ContentView.swift */; };
 		B929B0982A9BD7F2005163A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B929B0972A9BD7F2005163A7 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9A76B912ACA2AA800C6FFC6 /* HandyOperators in Frameworks */,
+				B9019A732ACB836D00E85664 /* UserDefault in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +94,7 @@
 			name = "Password Trainer";
 			packageProductDependencies = (
 				B9A76B902ACA2AA800C6FFC6 /* HandyOperators */,
+				B9019A722ACB836D00E85664 /* UserDefault */,
 			);
 			productName = "Password Trainer";
 			productReference = B929B0902A9BD7ED005163A7 /* Password Trainer.app */;
@@ -123,6 +126,7 @@
 			mainGroup = B929B0872A9BD7ED005163A7;
 			packageReferences = (
 				B9A76B8F2ACA2AA800C6FFC6 /* XCRemoteSwiftPackageReference "HandyOperators" */,
+				B9019A712ACB836D00E85664 /* XCRemoteSwiftPackageReference "UserDefault" */,
 			);
 			productRefGroup = B929B0912A9BD7ED005163A7 /* Products */;
 			projectDirPath = "";
@@ -286,6 +290,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -305,6 +310,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -324,6 +330,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -343,6 +350,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -373,6 +381,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B9019A712ACB836D00E85664 /* XCRemoteSwiftPackageReference "UserDefault" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/juliand665/UserDefault";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		B9A76B8F2ACA2AA800C6FFC6 /* XCRemoteSwiftPackageReference "HandyOperators" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/juliand665/HandyOperators";
@@ -384,6 +400,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B9019A722ACB836D00E85664 /* UserDefault */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9019A712ACB836D00E85664 /* XCRemoteSwiftPackageReference "UserDefault" */;
+			productName = UserDefault;
+		};
 		B9A76B902ACA2AA800C6FFC6 /* HandyOperators */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B9A76B8F2ACA2AA800C6FFC6 /* XCRemoteSwiftPackageReference "HandyOperators" */;

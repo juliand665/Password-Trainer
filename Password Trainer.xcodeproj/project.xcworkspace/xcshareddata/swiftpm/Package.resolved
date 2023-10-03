@@ -8,6 +8,15 @@
         "revision" : "39f39ae74471112d54152227bb70053b59ea796f",
         "version" : "2.1.0"
       }
+    },
+    {
+      "identity" : "userdefault",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/UserDefault",
+      "state" : {
+        "revision" : "01ecd19faf558571571e6a5ad72d5feae43b3cbf",
+        "version" : "1.3.1"
+      }
     }
   ],
   "version" : 2
