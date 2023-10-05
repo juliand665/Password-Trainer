@@ -13,62 +13,71 @@ struct ContentView: View {
 	@State var wrongGuessTrigger = false
 	@AppStorage("streak") var streak = 0
 	@UserDefault.State("nextReminder") var nextReminder: Date?
+	@FocusState var isPasswordFieldFocused: Bool
 	
 	private let keychain = OSKeychain.instance
 	
     var body: some View {
-        VStack {
-			Text("Enter Password")
-			
-			TextField("Guess", text: $guess)
-				.phaseAnimator([false, true], trigger: wrongGuessTrigger) { view, phase in
-					view
-						.offset(x: phase ? 5 : 0)
-				} animation: { phase in
-					phase 
-					? .easeOut(duration: 0)
-					: .spring(.init(settlingDuration: 0.5, dampingRatio: 0.05))
-				}
-				.onSubmit(submit)
-			
-			HStack {
-				let _ = password // otherwise the popover seems to capture the wrong one
-				Button("Peek") {
-					isPeeking = true
-				}
-				.popover(isPresented: $isPeeking) {
-					Text(password)
-						.monospaced()
-						.padding()
-				}
+		GroupBox {
+			VStack {
+				Text("Enter Password")
 				
-				Button("Submit", action: submit)
+				TextField("Guess", text: $guess)
+					.phaseAnimator([false, true], trigger: wrongGuessTrigger) { view, phase in
+						view
+							.offset(x: phase ? 5 : 0)
+					} animation: { phase in
+						phase
+						? .easeOut(duration: 0)
+						: .spring(.init(settlingDuration: 0.5, dampingRatio: 0.05))
+					}
+					.onSubmit(submit)
+					.textFieldStyle(.roundedBorder)
+					.focused($isPasswordFieldFocused)
 				
-				Button("Change") {
-					password = guess
-					try! keychain.store(password, forKey: keychainID)
-					streak = 0
+				HStack {
+					let _ = password // otherwise the popover seems to capture the wrong one
+					Button("Peek") {
+						isPeeking = true
+					}
+					.popover(isPresented: $isPeeking) {
+						Text(password)
+							.monospaced()
+							.padding()
+					}
+					
+					Button("Submit", action: submit)
+						.buttonStyle(.borderedProminent)
+					
+					Button("Change") {
+						password = guess
+						try! keychain.store(password, forKey: keychainID)
+						streak = 0
+					}
 				}
-			}
-			.fixedSize()
-			
-			Divider()
-			
-			Text("Streak: \(streak)")
-				.bold()
-			if let nextReminder {
-				TimelineView(.everyMinute) { _ in
-					if nextReminder > .now {
-						Text("Next reminder \(nextReminder, format: .relative(presentation: .named))")
-					} else {
-						Text("No reminder scheduled—make a guess!")
+				.fixedSize()
+				.buttonStyle(.bordered)
+				
+				Divider()
+				
+				Text("Streak: \(streak)")
+					.bold()
+				if let nextReminder {
+					TimelineView(.everyMinute) { _ in
+						if nextReminder > .now {
+							Text("Next reminder \(nextReminder, format: .relative(presentation: .named))")
+						} else {
+							Text("No reminder scheduled—make a guess!")
+						}
 					}
 				}
 			}
-        }
+		}
+		.groupBoxStyle(.hiddenOnMac)
 		.frame(maxWidth: 300)
         .padding()
 		.task {
+			isPasswordFieldFocused = true // defaultFocus didn't work
 			if let stored = try! keychain.loadString(forKey: keychainID) {
 				password = stored
 			} else {
@@ -106,7 +115,22 @@ struct ContentView: View {
 		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: time.timeIntervalSinceNow, repeats: false)
 		let request = UNNotificationRequest(identifier: notificationID, content: content, trigger: trigger)
 		try! await notificationCenter.setBadgeCount(0)
+		notificationCenter.removeAllDeliveredNotifications()
 		try! await notificationCenter.add(request)
+	}
+}
+
+extension GroupBoxStyle where Self == HiddenOnMacGroupBoxStyle {
+	static var hiddenOnMac: Self { .init() }
+}
+
+struct HiddenOnMacGroupBoxStyle: GroupBoxStyle {
+	func makeBody(configuration: Configuration) -> some View {
+#if os(macOS)
+		configuration.content
+#else
+		GroupBox(configuration)
+#endif
 	}
 }
 
