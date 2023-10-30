@@ -24,6 +24,7 @@
 		B929B0992A9BD7F2005163A7 /* Password_Trainer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Password_Trainer.entitlements; sourceTree = "<group>"; };
 		B929B09B2A9BD7F2005163A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B9A76B8D2ACA2A6200C6FFC6 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		B9DA2B752AEEA1730014AB18 /* Password-Trainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Password-Trainer-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		B929B0922A9BD7ED005163A7 /* Password Trainer */ = {
 			isa = PBXGroup;
 			children = (
+				B9DA2B752AEEA1730014AB18 /* Password-Trainer-Info.plist */,
 				B929B0932A9BD7ED005163A7 /* PasswordTrainerApp.swift */,
 				B929B0952A9BD7ED005163A7 /* ContentView.swift */,
 				B9A76B8D2ACA2A6200C6FFC6 /* Keychain.swift */,
@@ -290,6 +292,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Password-Trainer-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -330,6 +333,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Password-Trainer-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
