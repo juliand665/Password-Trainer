@@ -22,7 +22,7 @@ struct ContentView: View {
 			VStack {
 				Text("Enter Password")
 				
-				TextField("Guess", text: $guess)
+				SecureField("Guess", text: $guess)
 					.phaseAnimator([false, true], trigger: wrongGuessTrigger) { view, phase in
 						view
 							.offset(x: phase ? 5 : 0)
